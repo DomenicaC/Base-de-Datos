@@ -54,7 +54,7 @@ public class Persona {
         this.fechaNac = fechaNac;
         this.celular = celular;
         this.sueldo = sueldo;
-        
+
     }
 
     public String getNombre() {
@@ -63,21 +63,17 @@ public class Persona {
 
     public void setNombre(String nombre) throws ValidarNombre, ValidarDosNombres {
 
-        boolean v = false;
-
-        for (int i = nombre.length() + 1; i <= 50; i++) {
-            nombre = nombre.substring(0) + " ";
-            v = true;
-        }
+        boolean v = true;
 
         for (int i = 0; i < nombre.length(); i++) {
             if ((nombre.charAt(i) < 60 || nombre.charAt(i) > 100 && nombre.charAt(i) < 97 || nombre.charAt(i) > 122) && nombre.charAt(i) != 32) {
-                v = true;
+                v = false;
 
             }
         }
 
         if (v) {
+
             if (nombre.contains(" ")) {
 
                 this.nombre = nombre;
@@ -116,12 +112,8 @@ public class Persona {
         if (v) {
 
             if (apellido.contains(" ")) {
-                while (apellido.length() < 50) {
-                    apellido = apellido + " ";
-                    this.apellido = apellido;
-                    v = true;
 
-                }
+                this.apellido = apellido;
 
             } else {
 
@@ -249,12 +241,12 @@ public class Persona {
 
     public void setFechaNac(Date fechaNac) throws ValidarFechaNac {
         /*
-        String resp = "/";
-        boolean corr = false;
+         String resp = "/";
+         boolean corr = false;
 
-        //if (fechaNac.length() == 10) {
-        this.fechaNac = fechaNac;
-        /*if (fechaNac.substring(2).equals(resp) && fechaNac.substring(5).equals(resp)) {
+         //if (fechaNac.length() == 10) {
+         this.fechaNac = fechaNac;
+         /*if (fechaNac.substring(2).equals(resp) && fechaNac.substring(5).equals(resp)) {
          //dia
          if (Integer.parseInt(fechaNac.substring(0)) > 0 && Integer.parseInt(fechaNac.substring(0)) < 4) {
          if (Integer.parseInt(fechaNac.substring(1)) > 0 && Integer.parseInt(fechaNac.substring(1)) < 9) {
@@ -343,6 +335,11 @@ public class Persona {
 
         System.out.println("Sueldo " + sueldo);
 
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", fechaNac=" + fechaNac + ", edad=" + edad + ", celular=" + celular + ", sueldo=" + sueldo + '}';
     }
 
 }

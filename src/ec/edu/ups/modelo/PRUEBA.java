@@ -21,7 +21,15 @@ public class PRUEBA {
         Persona p = new Persona("0123456789", "johanna", "canizares", 30, new java.util.Date(), "0968741628", 201.3);
 
         ControladorBase contBase = new ControladorBase();
-        contBase.create(p);
-
+        
+        //contBase.create(p);
+        
+        String cedula = "0104700844";
+        //Persona per = contBase.findByCedula(cedula);
+        //System.out.println(per);
+        
+        
+        //Persona pers = contBase.listar();
+        //System.out.println(pers);
     }
 }

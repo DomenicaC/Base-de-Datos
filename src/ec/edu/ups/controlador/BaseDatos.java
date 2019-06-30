@@ -38,7 +38,7 @@ public class BaseDatos {
         try {
             conexionBD = DriverManager.getConnection(url, user, password);
             if (conexionBD.isValid(5000)) {
-                System.err.println("Conexion exitosa");
+                System.out.println("Conexion exitosa");
             }
         } catch (SQLException error) {
             System.err.println("Error de conexion" + error.toString());
